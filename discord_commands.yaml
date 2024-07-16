@@ -1,0 +1,7 @@
+- name: echo
+  description: echo message back to sender
+  options:
+    - name: message
+      description: message to echo back
+      type: 3 # string
+      required: true
