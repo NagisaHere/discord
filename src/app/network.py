@@ -1,4 +1,6 @@
 from flask import Flask, jsonify, request
+from discord_interactions import verify_key_decorator
+from key import get_public_key
 
 app = Flask(__name__)
 
@@ -12,6 +14,7 @@ def start_network() -> None:
         print(f"Request: {raw_request}")
         return interact(raw_request)
 
+    # @verify_key_decorator(get_public_key())
     def interact(raw_request):
         """raw_request is in a json file"""
         if raw_request["type"] == 1:  # ping

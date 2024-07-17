@@ -2,7 +2,8 @@ import discord
 from discord.ext import commands
 from key import get_key
 from constants import *
-from network import start_network
+from register_commands import register_commands
+# from network import start_network
 
 
 intents = discord.Intents.default()
@@ -25,5 +26,6 @@ async def on_message(message):
         await message.channel.send('Hello!')
 
 if __name__ == "__main__":
+    register_commands()
     client.run(get_key())
-    start_network()
+    # start_network()
