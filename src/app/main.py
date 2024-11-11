@@ -1,9 +1,13 @@
 import discord
 from discord.ext import commands
+import os
+from dotenv import load_dotenv
+
+# own imports
 from key import get_key
 from constants import *
 from register_commands import register_commands
-# from network import start_network
+from network import start_network
 
 
 intents = discord.Intents.default()
@@ -26,6 +30,7 @@ async def on_message(message):
         await message.channel.send('Hello!')
 
 if __name__ == "__main__":
+    load_dotenv()
     register_commands()
-    client.run(get_key())
-    # start_network()
+    client.run(os.getenv("TOKEN"))
+    start_network()
